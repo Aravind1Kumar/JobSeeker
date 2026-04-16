@@ -1,0 +1,70 @@
+.uploadWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.aiButton {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+}
+
+.aiButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
+  background-position: right center;
+}
+
+.aiButton:active {
+  transform: translateY(1px);
+}
+
+.aiButton.analyzing {
+  opacity: 0.85;
+  cursor: not-allowed;
+  transform: none;
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+}
+
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.errorText {
+  color: #ef4444;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+}

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import styles from './Hero.module.css';
 import { MdSearch } from 'react-icons/md';
+import ResumeUpload from './ResumeUpload';
 
 interface HeroProps {
   onSearch?: (query: string) => void;
@@ -13,6 +14,11 @@ const Hero: React.FC<HeroProps> = ({ onSearch }) => {
 
   const handleSearch = () => {
     if (onSearch) onSearch(query);
+  };
+
+  const handleSkillsExtracted = (skills: string) => {
+    setQuery(skills);
+    if (onSearch) onSearch(skills);
   };
 
   return (
@@ -38,6 +44,8 @@ const Hero: React.FC<HeroProps> = ({ onSearch }) => {
           />
           <button className={styles.searchBtn} onClick={handleSearch}>Search Jobs</button>
         </div>
+
+        <ResumeUpload onSkillsExtracted={handleSkillsExtracted} />
         
         <div className={styles.stats}>
           <div className={styles.statItem}>
